@@ -1,0 +1,63 @@
+<html>
+<head>
+	<title></title>
+	<style>
+	#search-box{width: 50%; float: left;padding: 20px; box-sizing: border-box;}
+	#search-box input{width: 300px}
+
+	#favorits{width: 50%; float: right;padding: 20px; box-sizing: border-box;}
+	</style>	
+	<script type="text/javascript" src="/jquery-2.0.0.js"></script>
+	<script type="text/javascript" src="/underscore.js"></script>
+	<script type="text/javascript" src="/backbone.js"></script>
+	<script type="text/javascript">
+	window.SearchView = Backbone.View.extend({
+		events : {
+			"click button" : "search",
+			"keypress input" : "keypressHandler"
+		},
+		initialize : function(config){
+			this.$el = config.$el;
+
+			this.$input = this.$el.find('input');
+		},
+		keypressHandler : function(event){
+			if(event.which === 13){
+				this.search();
+			}
+		},
+		search : function(){
+			var value = this.$input.val();
+
+			console.log('buscando', value);
+			debugger;
+		},
+		render : function(){
+
+		}
+	});
+
+	$(document).ready(function() {
+		window.videoTemplate = _.template( $('#videoTemplate').html() );
+
+		window.search = new SearchView({
+			$el : $('#search-box')
+		});
+	});
+	</script>
+</head>
+<body>
+	<div id="search-box">
+		<p>Buscar: <input type="text"/><button>Buscar</button></p>
+		<div id="videos"></div>
+	</div>
+	<div id="favorits"></div>
+	<script id="videoTemplate" type="text/template">
+		<div>
+			<h4><%= title %></h4>
+			<img src="<%= thumb %>"/>
+			<span class="favorite">Favorito</span>
+		</div>
+	</script>	
+</body>
+</html>
