@@ -1,4 +1,9 @@
-siedrixbonus
-============
+Siedrix Bonus
+==============
 
-Clase Bonus del Curso de MejorandoFron Brindada por Daniel Zabala @siedrix
+Mejorando.la
+
+Clase Bonus  Curso #MejorFront
+
+Brindada por Daniel Zavala @siedrix
+
